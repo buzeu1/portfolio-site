@@ -5,7 +5,7 @@ export const profile = {
   email: "buzaucosmin6@gmail.com",
   phone: "+40 721 850 827",
   github: "https://github.com/buzeu1",
-  linkedin: "https://www.linkedin.com/in/cosmin-ionut.buzau",
+  linkedin: "https://www.linkedin.com/in/cosmin-ionut-buzau/",
   cvPath: "/CV_Buzau_Cosmin_Ionut.pdf",
   photo: "/profile.png",
   tagline:
@@ -26,7 +26,7 @@ export const achievements = [
     year: "2024",
   },
   {
-    value: "9+",
+    value: "3+",
     label: "Production websites & AI systems shipped for real clients",
     year: "2024–2026",
   },
@@ -72,7 +72,7 @@ export const projects: Project[] = [
   {
     title: "Fără Agenții — Commission-Free Real Estate Marketplace",
     description:
-      "Full-stack marketplace connecting buyers and renters directly with property owners across Iași — no agents, no commissions. Real-time chat between parties, a role-gated admin panel, and an AI chatbot powered by Claude + LangChain RAG over a pgvector-backed listings database, all secured with Row Level Security.",
+      "A marketplace that lets buyers and renters deal directly with property owners across Iași — no agents, no commissions. Owners and tenants message each other in real time, manage listings from their own dashboard, and can ask an AI assistant anything about the available properties and get answers grounded in the actual listings database. Every table is locked down with Row Level Security, so access control is enforced at the database level, not just in the UI.",
     tech: ["Next.js 14", "TypeScript", "Supabase", "Claude API", "LangChain", "RAG", "pgvector"],
     github: "https://github.com/buzeu1/faraagentii",
     featured: true,
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   {
     title: "AI Trading Bot MT5 — Autonomous Trading System",
     description:
-      "Fully autonomous MetaTrader 5 bot scanning forex, indices and crypto every 30 seconds, deciding BUY/SELL/HOLD/CLOSE via a Groq LLaMA model. A custom RAG pipeline (ChromaDB + LangChain) gives it contextual memory of past market situations, with ATR-based risk sizing, trailing stop-loss and a high-impact news filter.",
+      "An autonomous trading system for MetaTrader 5 that scans forex pairs, indices and crypto every 30 seconds and trades around the clock without supervision. Every buy, sell, hold or close call is made by an AI model that also draws on a memory of past market situations through a retrieval-augmented pipeline, so its judgment improves the more it trades. Position sizing adapts to account equity and volatility, losses are capped with trailing stops, and it automatically sits out high-impact news events.",
     tech: ["Python", "Flask", "MQL5", "Groq API", "ChromaDB", "LangChain"],
     github: "https://github.com/buzeu1/mt5-ai-trader",
     featured: true,
@@ -88,7 +88,7 @@ export const projects: Project[] = [
   {
     title: "Sales Assistant Bot — Microsoft Teams",
     description:
-      "Teams bot for sales agents processing natural-language queries against a product catalog through a three-tier search engine — exact SKU match, fuzzy lexical scoring, then LLM semantic verification — with multilingual embeddings, Whisper voice input, and automated PDF offer generation.",
+      "A Microsoft Teams bot that lets sales agents find the right product just by describing what they need in plain language. It searches in three passes — exact SKU match, fuzzy text scoring, then AI semantic verification — and understands product names across languages, so a misspelled or informal query still finds the right item. Agents can ask by voice, get a clarifying question when a match is ambiguous, and walk away with a ready-made PDF offer.",
     tech: ["Python", "FastAPI", "Bot Framework SDK", "Azure AD", "Whisper", "Groq API"],
     github: "https://github.com/buzeu1",
     featured: true,
@@ -96,7 +96,7 @@ export const projects: Project[] = [
   {
     title: "AI Chat Assistant — AWS Lambda, API Gateway & Amazon Bedrock",
     description:
-      "Serverless chat API defined as infrastructure-as-code with AWS SAM: a least-privilege Lambda function invokes Claude via Amazon Bedrock behind a single API Gateway route. Paired with a Next.js app that streams Bedrock responses token-by-token straight to the browser, rendered as formatted Markdown.",
+      "A serverless AI chat backend built the way production infrastructure should be: fully defined as code with AWS SAM, running on a Lambda function that holds only the one permission it needs to call Claude through Amazon Bedrock. Paired with a Next.js frontend that streams the answer back token by token, so replies feel instant instead of arriving all at once, and render as clean, formatted Markdown as they come in.",
     tech: ["Python", "AWS Lambda", "AWS SAM", "API Gateway", "Amazon Bedrock", "Next.js"],
     github: "https://github.com/buzeu1/ai-chat-bedrock-demo",
     featured: true,
@@ -104,35 +104,35 @@ export const projects: Project[] = [
   {
     title: "Aerontermosistem — Construction & Renovation Company Website",
     description:
-      "Business website for a construction and renovation company in Roman, Neamț, with a dynamic image gallery managed through a custom admin panel, a MongoDB-backed contact form, and full local SEO with Open Graph metadata and JSON-LD structured data.",
+      "A business website for a construction and renovation company in Roman, Neamț, built so the client can run it without ever calling a developer. Project photos are managed through a custom admin panel, every inquiry lands straight in a MongoDB database, and the whole site is tuned for local search with structured data and Open Graph metadata.",
     tech: ["Next.js 15", "TypeScript", "MongoDB Atlas", "Cloudinary", "Vercel"],
     github: "https://github.com/buzeu1/aerontermosistem",
   },
   {
     title: "Boeru's Doner — Fast-Food Chain Web Platform",
     description:
-      "Platform for a 5-location fast-food chain: a full digital menu with 50+ items across 9 categories, Supabase-driven live promotions, multi-location ordering linked to Glovo/Wolt, and a franchise-inquiry funnel with a branded design system.",
+      "A web platform for a 5-location fast-food chain that works both as a customer-facing menu and a franchise recruitment tool. Over 50 items across 9 categories are backed by live, Supabase-driven pricing and promotions, ordering links out to Glovo and Wolt for whichever location is closest, and the whole experience carries a distinct branded look with smooth scroll animations.",
     tech: ["Next.js 16", "TypeScript", "Supabase", "Tailwind CSS"],
     github: "https://github.com/buzeu1/boerusdoner",
   },
   {
     title: "Compact Drive — Driving School Platform",
     description:
-      "Platform for a driving school in Roman, Neamț, with an admin dashboard the client uses to manage the student gallery and promotions independently, EmailJS-connected enrollment forms, and advanced local SEO with structured data schemas.",
+      "A website for a driving school in Roman, Neamț, with an admin dashboard that hands full control back to the owner — updating the student gallery or launching a new promotion needs no developer involved. Enrollment forms deliver straight to email through EmailJS, and structured data, a sitemap and Open Graph tags take care of the local SEO groundwork.",
     tech: ["Next.js 14", "Supabase", "EmailJS", "Tailwind CSS"],
     github: "https://github.com/buzeu1/compactdrive",
   },
   {
     title: "EmotionCamera — Real-Time AI Emotion Recognition",
     description:
-      "Real-time facial emotion detection from a live webcam feed, classifying 7 expressions via OpenCV and FER at ~30fps, with results overlaid live as bounding boxes and per-emotion probability bars. Backend containerized with Docker on Railway; frontend on Vercel.",
+      "A web app that reads facial expressions live from your webcam — happy, sad, angry, fearful, surprised, disgusted or neutral — at roughly 30 frames a second. Each frame is analyzed by a computer-vision backend and the result is drawn straight onto the video feed as bounding boxes and per-emotion probability bars, with the backend containerized and deployed independently from the frontend.",
     tech: ["Next.js 14", "FastAPI", "OpenCV", "FER (TensorFlow)", "Docker", "Railway"],
     github: "https://github.com/buzeu1/emotion-detector",
   },
   {
     title: "Trapped in the Server — 2D Java Adventure Game",
     description:
-      "A 2D action-adventure game built entirely from scratch in Java, no external engine — 3 levels spanning platforming, top-down exploration and a boss fight, with a triple-buffered 60 FPS render loop, custom Tiled map parsing, and Singleton/State/Abstract-Factory design patterns throughout.",
+      "A 2D adventure game built entirely from scratch in Java, with no engine underneath it — the rendering pipeline, the game loop and the physics are all hand-written. Across 3 levels, the player fights through a side-scrolling platformer, a fog-of-war top-down maze and a final boss arena, all running on architecture built the right way, with Singleton, State and Abstract Factory patterns doing the structural work a real codebase needs.",
     tech: ["Java", "Java2D / AWT", "Tiled (TMX)", "SQLite", "JDBC"],
     github: "https://github.com/buzeu1/Trapped-In-The-Server",
   },
