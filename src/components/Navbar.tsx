@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-zinc-200 bg-white/80 backdrop-blur-xl" : "bg-transparent"
+        scrolled ? "border-b border-zinc-300/60 bg-[#f2f2f4]/85 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -63,7 +63,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-zinc-200 bg-white/95 px-6 py-4 backdrop-blur-xl md:hidden">
+        <div className="border-t border-zinc-300/60 bg-[#f2f2f4]/95 px-6 py-4 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-4">
             {LINKS.map((l) => (
               <a

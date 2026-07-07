@@ -5,8 +5,8 @@ import { profile } from "@/data/portfolio";
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-white py-28">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-100/80 blur-[140px]" />
+    <section id="contact" className="relative overflow-hidden bg-[#f2f2f4] py-28">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-200/60 blur-[140px]" />
 
       <div className="mx-auto max-w-3xl px-6 text-center">
         <Reveal>

@@ -4,7 +4,7 @@ import { profile, education, achievements } from "@/data/portfolio";
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-zinc-50 py-28">
+    <section id="about" className="relative bg-[#eaeaee] py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <span className="text-sm font-semibold uppercase tracking-widest text-violet-600">

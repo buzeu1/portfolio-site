@@ -13,7 +13,7 @@ export default function Projects() {
     active === "all" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="projects" className="relative bg-zinc-50 py-28">
+    <section id="projects" className="relative bg-[#eaeaee] py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <span className="text-sm font-semibold uppercase tracking-widest text-violet-600">

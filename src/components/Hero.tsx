@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen items-center overflow-hidden bg-white pt-24"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#f2f2f4] pt-24"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -81,7 +81,7 @@ export default function Hero() {
             <a
               href={profile.cvPath}
               download
-              className="rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-800 transition-colors hover:bg-zinc-50"
+              className="rounded-full border border-zinc-300 bg-white/80 px-6 py-3 text-sm font-semibold text-zinc-800 transition-colors hover:bg-zinc-50"
             >
               Download CV
             </a>
