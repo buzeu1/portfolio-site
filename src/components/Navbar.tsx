@@ -25,12 +25,12 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/60 backdrop-blur-xl border-b border-white/10" : "bg-transparent"
+        scrolled ? "border-b border-zinc-200 bg-white/80 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-semibold tracking-tight text-white">
-          Buzau<span className="text-violet-400">.</span>Cosmin
+        <a href="#top" className="font-semibold tracking-tight text-zinc-900">
+          Buzau<span className="text-violet-600">.</span>Cosmin
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -38,7 +38,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-white/70 transition-colors hover:text-white"
+              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
             >
               {l.label}
             </a>
@@ -46,7 +46,7 @@ export default function Navbar() {
           <a
             href={profile.cvPath}
             download
-            className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white transition-colors hover:bg-white/10"
+            className="flex items-center gap-2 rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
           >
             <Download size={14} />
             CV
@@ -55,7 +55,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="text-white md:hidden"
+          className="text-zinc-900 md:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -63,19 +63,19 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-black/90 px-6 py-4 backdrop-blur-xl md:hidden">
+        <div className="border-t border-zinc-200 bg-white/95 px-6 py-4 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-4">
             {LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-sm text-white/80"
+                className="text-sm text-zinc-700"
               >
                 {l.label}
               </a>
             ))}
-            <a href={profile.cvPath} download className="text-sm text-violet-400">
+            <a href={profile.cvPath} download className="text-sm font-medium text-violet-600">
               Download CV
             </a>
           </div>
