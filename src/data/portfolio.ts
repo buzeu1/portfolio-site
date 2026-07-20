@@ -3,6 +3,7 @@ export const profile = {
   role: "AI Software Engineer",
   location: "Iași, România",
   email: "buzaucosmin6@gmail.com",
+  phone: "+40 721 850 827",
   github: "https://github.com/buzeu1",
   linkedin: "https://www.linkedin.com/in/cosmin-ionut-buzau/",
   cvPath: "/CV_Buzau_Cosmin_Ionut.pdf",
