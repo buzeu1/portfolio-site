@@ -3,20 +3,19 @@ export const profile = {
   role: "AI Software Engineer",
   location: "Iași, România",
   email: "buzaucosmin6@gmail.com",
-  phone: "+40 721 850 827",
   github: "https://github.com/buzeu1",
   linkedin: "https://www.linkedin.com/in/cosmin-ionut-buzau/",
   cvPath: "/CV_Buzau_Cosmin_Ionut.pdf",
   photo: "/profile.png",
   tagline:
-    "Building AI-powered products end-to-end — from LLM integration and RAG pipelines to production-grade full-stack platforms.",
-  bio: "Computer Science student at “Gheorghe Asachi” Technical University, Iași, building and shipping real products since 2024 — not side projects that stay on GitHub, but systems actual businesses and users run daily. Skilled in LLM integration, RAG pipelines, and workflow automation, deploying production systems with Python, Next.js, TypeScript, FastAPI and Supabase. A fast learner who thrives in new environments and adapts quickly across domains — always delivering results.",
+    "Building AI-powered products end-to-end — from LLM integration and machine learning to production-grade full-stack platforms.",
+  bio: "Computer Science student at “Gheorghe Asachi” Technical University, Iași, building and shipping real products since 2024 — not side projects that stay on GitHub, but systems actual businesses and users run daily. Skilled in LLM integration, RAG pipelines, machine learning and workflow automation, deploying production systems with Python, Next.js, TypeScript, FastAPI and Supabase. A fast learner who thrives in new environments and adapts quickly across domains — always delivering results.",
 };
 
 export const education = {
   school: "Universitatea Tehnică “Gheorghe Asachi”, Iași",
   degree: "Bachelor's in Progress — Computer Science and Information Technology",
-  period: "Oct 2023 – Present",
+  period: "Oct 2024 – Present",
 };
 
 export const achievements = [
@@ -32,7 +31,7 @@ export const achievements = [
   },
   {
     value: "24/7",
-    label: "Autonomous AI trading bot integrating multiple LLM APIs",
+    label: "Engineered a self-retraining ML trading system (LightGBM + PyTorch)",
     year: "2026",
   },
 ];
@@ -40,23 +39,27 @@ export const achievements = [
 export const skillGroups = [
   {
     title: "Programming Languages",
-    skills: ["Python", "TypeScript", "JavaScript", "Java", "C", "C++", "Verilog", "MQL5", "Assembly"],
+    skills: ["Python", "TypeScript", "JavaScript", "Java", "C", "C++", "MQL5"],
   },
   {
     title: "Frameworks & Libraries",
     skills: ["Next.js", "React", "FastAPI", "Flask", "Tailwind CSS", "LangChain", "Microsoft Bot Framework", "sentence-transformers"],
   },
   {
+    title: "Machine Learning",
+    skills: ["PyTorch", "LightGBM", "XGBoost", "scikit-learn", "Optuna", "OpenCV", "pandas", "TensorFlow"],
+  },
+  {
     title: "Databases & Backend",
-    skills: ["Supabase", "MongoDB", "Mongoose", "PostgreSQL", "pgvector", "REST APIs", "boto3"],
+    skills: ["Supabase", "MongoDB", "Mongoose", "PostgreSQL", "pgvector", "SQLite", "REST APIs", "boto3"],
   },
   {
     title: "AI & Automation",
-    skills: ["Large Language Models", "RAG Pipelines", "OpenCV", "Whisper", "LLM Integration", "Trading Automation", "Anthropic Claude", "Amazon Bedrock"],
+    skills: ["LLM Integration", "RAG Pipelines", "Whisper", "Trading Automation", "Workflow Automation", "Anthropic Claude", "Amazon Bedrock"],
   },
   {
     title: "DevOps & Tools",
-    skills: ["Docker", "Git", "GitHub", "Vercel", "Railway", "Linux", "AWS Lambda", "AWS SAM", "CloudWatch", "OAuth2", "Azure AD"],
+    skills: ["Docker", "Git", "GitHub", "Vercel", "Railway", "Linux", "AWS Lambda", "AWS S3", "AWS SAM", "CloudWatch", "OAuth2", "Azure AD"],
   },
   {
     title: "Integrations & Services",
@@ -94,10 +97,10 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "AI Trading Bot MT5 — Autonomous Trading System",
+    title: "AI Trading Bot — Self-Retraining ML System for MetaTrader 5",
     description:
-      "An autonomous trading system for MetaTrader 5 that scans forex pairs, indices and crypto every 30 seconds and trades around the clock without supervision. Every buy, sell, hold or close call is made by an AI decision engine with a retrieval-based memory of past market situations, so its judgment sharpens the more it trades. Position sizing adapts to account equity and volatility, trailing stops cap the downside, and an economic news filter automatically sits out high-impact events.",
-    tech: ["Python", "Flask", "MQL5", "MetaTrader 5", "LLM", "RAG", "REST API"],
+      "A trading bot for MetaTrader 5 that runs and improves itself, built on multi-year price history and engineered market features. Every night it backtests trading strategies against fresh market data to generate labeled trade signals and retrains two competing models on them — LightGBM followed by a PyTorch neural network — both periodically tuned with Optuna. Models are validated the honest way: only on data they have never seen, with realistic hour-of-day spread and slippage costs included. A new model only replaces the live one if it genuinely outperforms it out-of-sample — a safeguard against a bad training run silently degrading production — every trade needs a minimum expected profit after costs, and a kill switch stops everything if losses or model drift grow. The database, trained models and reports are backed up weekly to AWS S3, and live monitoring comes through a Flask dashboard plus daily Telegram status messages. Next step: extending the ML layer from entry filtering to active trade management — deciding when to hold, trail or exit an open position as market conditions evolve.",
+    tech: ["Python", "PyTorch", "LightGBM", "scikit-learn", "Optuna", "Flask", "SQLite", "MQL5", "MetaTrader 5", "AWS S3"],
     category: "ai",
     github: "https://github.com/buzeu1/mt5-ai-trader",
     featured: true,
@@ -140,7 +143,7 @@ export const projects: Project[] = [
   {
     title: "Boeru's Doner — Fast-Food Chain Web Platform",
     description:
-      "A marketing and ordering platform for a fast-food chain with 5 locations across Moldova, Romania. A 50+ item digital menu across 9 categories with variants and badges, an interactive Leaflet map for finding the nearest branch, per-location Glovo/Wolt ordering links, and a franchise funnel with a routed contact form delivering via Resend. Every page ships its own Open Graph metadata and JSON-LD structured data — Restaurant schema per location plus a FAQ schema.",
+      "A marketing and ordering platform for a fast-food chain with 5 locations across Moldova, Romania. A 50+ item digital menu across 9 categories with variants and badges, an interactive Leaflet map for finding the nearest branch, per-location Glovo/Wolt ordering links, and a franchise funnel with a routed contact form delivering via Resend. Every page ships its own Open Graph metadata and JSON-LD structured data — Restaurant schema per location plus a FAQ schema. Now bringing in real customers — 500+ visits in the last three months.",
     tech: ["Next.js 16", "TypeScript", "Tailwind CSS", "React-Leaflet", "Resend", "Vercel"],
     category: "web",
     github: "https://github.com/buzeu1/boerusdoner",
@@ -149,7 +152,7 @@ export const projects: Project[] = [
   {
     title: "Compact Drive — Driving School Platform",
     description:
-      "A platform for a driving school in Roman, Neamț — a live gallery and promotions system backed by Supabase that the owner updates independently, without a developer involved. Enrollment forms deliver instantly via EmailJS, and the local SEO stack is genuinely complete: JSON-LD schemas (AutomotiveBusiness, FAQPage, BreadcrumbList), per-page Open Graph metadata, sitemap and robots.txt.",
+      "A platform for a driving school in Roman, Neamț — a live gallery and promotions system backed by Supabase that the owner updates independently, without a developer involved. Enrollment forms deliver instantly via EmailJS, and the local SEO stack is genuinely complete: JSON-LD schemas (AutomotiveBusiness, FAQPage, BreadcrumbList), per-page Open Graph metadata, sitemap and robots.txt. Technical SEO now drives 150+ organic visits a month straight from Google Search.",
     tech: ["Next.js 14", "React 18", "Supabase", "EmailJS", "Tailwind CSS"],
     category: "web",
     github: "https://github.com/buzeu1/compactdrive",

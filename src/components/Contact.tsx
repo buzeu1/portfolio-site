@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import Reveal from "@/components/Reveal";
 import { profile } from "@/data/portfolio";
@@ -30,13 +30,6 @@ export default function Contact() {
             >
               <Mail size={16} />
               {profile.email}
-            </a>
-            <a
-              href={`tel:${profile.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm text-zinc-700 transition-colors hover:bg-zinc-50"
-            >
-              <Phone size={16} />
-              {profile.phone}
             </a>
           </div>
         </Reveal>
