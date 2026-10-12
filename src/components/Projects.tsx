@@ -47,11 +47,11 @@ export default function Projects() {
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
-            {visible.map((project, i) => (
+            {visible.map((project) => (
               <ProjectCard
                 key={project.title}
                 project={project}
-                wide={i === 0 && visible.length % 2 === 1}
+
               />
             ))}
           </AnimatePresence>

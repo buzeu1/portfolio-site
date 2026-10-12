@@ -188,18 +188,16 @@ export const projects: Project[] = [
     title: "AI Trading Bot",
     subtitle: "Self-Retraining ML System for MetaTrader 5",
     description:
-      "A trading bot for MetaTrader 5 that runs and improves itself, built on multi-year price history and engineered market features. Every night it backtests trading strategies against fresh market data to generate labeled trade signals and retrains two competing models on them — LightGBM followed by a PyTorch neural network — both periodically tuned with Optuna.",
+      "Trading bot for MetaTrader 5 that runs and improves itself, built on multi-year price history and engineered market features. Every night it backtests trading strategies against fresh market data and retrains two competing models — LightGBM and a PyTorch neural network — tuned with Optuna.",
     highlights: [
-      "Honest validation: models are tested only on data they have never seen, with realistic hour-of-day spread and slippage costs.",
-      "A new model replaces the live one only if it genuinely outperforms it out-of-sample — no bad training run can silently degrade production.",
-      "Every trade needs a minimum expected profit after costs; a kill switch stops everything if losses or model drift grow.",
-      "Weekly backups of database, models and reports to AWS S3; live monitoring via a Flask dashboard and daily Telegram status messages.",
-      "Next step: extending the ML layer from entry filtering to active trade management — when to hold, trail or exit an open position.",
+      "Validated only on data the models have never seen, with realistic spread and slippage costs included.",
+      "A new model replaces the live one only if it genuinely outperforms it — plus a kill switch if losses or model drift grow.",
+      "Weekly backups to AWS S3, a Flask dashboard and daily Telegram status messages.",
+      "Next step: an ML agent for active trade management — deciding when to hold, trail or exit an open position.",
     ],
     tech: ["Python", "PyTorch", "LightGBM", "scikit-learn", "Optuna", "Flask", "SQLite", "MQL5", "MetaTrader 5", "AWS S3"],
     category: "ai",
     github: "https://github.com/buzeu1/mt5-ai-trader",
-    metric: "Retrains nightly",
     featured: true,
   },
   {
