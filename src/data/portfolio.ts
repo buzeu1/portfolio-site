@@ -252,6 +252,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Realtime", "LangChain", "Groq (Llama 3.3)"],
     category: "ai",
     github: "https://github.com/buzeu1/faraagentii",
+    live: "https://faraagentii.vercel.app",
     metric: "RLS on 7 tables",
   },
   {
