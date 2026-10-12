@@ -2,147 +2,147 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, ArrowDown } from "lucide-react";
+import { Mail, ArrowRight, Download, MapPin, Briefcase } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { profile } from "@/data/portfolio";
+import { profile, stats, experience } from "@/data/portfolio";
+
+const fade = (delay: number) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+});
 
 export default function Hero() {
+  const latest = experience[0];
+
   return (
-    <section
-      id="top"
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#f2f2f4] pt-24"
-    >
+    <section id="top" className="relative overflow-hidden bg-[#fbfbfd] pb-20 pt-32 sm:pt-36">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-10%] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-violet-200/50 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] h-[28rem] w-[28rem] rounded-full bg-cyan-200/50 blur-[120px]" />
-        <div
-          className="absolute inset-0 opacity-[0.5]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(0,0,0,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.045) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-          }}
-        />
+        <div className="dot-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
+        <div className="absolute left-[10%] top-[-12rem] h-[32rem] w-[32rem] rounded-full bg-indigo-100/70 blur-[120px]" />
+        <div className="absolute right-[-6rem] top-[8rem] h-[26rem] w-[26rem] rounded-full bg-sky-100/70 blur-[120px]" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-6 md:grid-cols-[1.2fr_0.8fr]">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-6 md:grid-cols-[1.25fr_0.75fr]">
         <div>
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-300 bg-violet-50 px-4 py-1.5 text-xs font-medium text-violet-700"
+            {...fade(0)}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-medium text-slate-700 shadow-sm"
           >
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
-            Open to Software Engineer / AI Engineer roles
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            {profile.availability}
           </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl"
+            {...fade(0.05)}
+            className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl md:text-[3.6rem] md:leading-[1.05]"
           >
             {profile.name}
           </motion.h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-3 bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 bg-clip-text text-2xl font-semibold text-transparent sm:text-3xl"
+          <motion.p
+            {...fade(0.12)}
+            className="mt-4 text-xl font-medium text-indigo-600 sm:text-2xl"
           >
             {profile.role}
-          </motion.h2>
+          </motion.p>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-zinc-600 sm:text-lg"
+            {...fade(0.2)}
+            className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg"
           >
             {profile.tagline}
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.28 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
-          >
+          <motion.div {...fade(0.26)} className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin size={15} className="text-slate-400" />
+              {profile.location} · Remote
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Briefcase size={15} className="text-slate-400" />
+              Recently: {latest.role} @ {latest.company}
+            </span>
+          </motion.div>
+
+          <motion.div {...fade(0.32)} className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.03]"
+              className="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-600"
             >
               View Projects
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href={profile.cvPath}
               download
-              className="rounded-full border border-zinc-300 bg-white/80 px-6 py-3 text-sm font-semibold text-zinc-800 transition-colors hover:bg-zinc-50"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:border-slate-400"
             >
+              <Download size={16} />
               Download CV
             </a>
 
-            <div className="ml-2 flex items-center gap-3">
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-                className="rounded-full border border-zinc-300 bg-white p-2.5 text-zinc-600 transition-colors hover:border-zinc-500 hover:text-zinc-900"
-              >
-                <GithubIcon size={18} />
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="rounded-full border border-zinc-300 bg-white p-2.5 text-zinc-600 transition-colors hover:border-zinc-500 hover:text-zinc-900"
-              >
-                <LinkedinIcon size={18} />
-              </a>
-              <a
-                href={`mailto:${profile.email}`}
-                aria-label="Email"
-                className="rounded-full border border-zinc-300 bg-white p-2.5 text-zinc-600 transition-colors hover:border-zinc-500 hover:text-zinc-900"
-              >
-                <Mail size={18} />
-              </a>
+            <div className="flex items-center gap-2 sm:ml-2">
+              {[
+                { href: profile.github, label: "GitHub", icon: <GithubIcon size={18} />, ext: true },
+                { href: profile.linkedin, label: "LinkedIn", icon: <LinkedinIcon size={18} />, ext: true },
+                { href: `mailto:${profile.email}`, label: "Email", icon: <Mail size={18} />, ext: false },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  {...(s.ext ? { target: "_blank", rel: "noreferrer" } : {})}
+                  aria-label={s.label}
+                  className="rounded-full border border-slate-200 bg-white p-2.5 text-slate-500 shadow-sm transition-colors hover:border-indigo-200 hover:text-indigo-600"
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </motion.div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="relative mx-auto w-full max-w-sm"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-[340px]"
         >
-          <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-violet-300/60 via-fuchsia-200/40 to-cyan-200/50 blur-2xl" />
-          <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-zinc-200 shadow-xl">
-            <Image
-              src={profile.photo}
-              alt={profile.name}
-              fill
-              priority
-              sizes="(max-width: 768px) 90vw, 400px"
-              className="object-cover"
-            />
+          <div className="absolute -inset-3 -z-10 rounded-[2.2rem] bg-gradient-to-br from-indigo-200/60 via-white to-sky-200/60 blur-xl" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.8rem] border border-white bg-white p-2 shadow-[0_30px_60px_-30px_rgba(15,23,42,0.35)]">
+            <div className="relative h-full w-full overflow-hidden rounded-[1.4rem]">
+              <Image
+                src={profile.photo}
+                alt={profile.name}
+                fill
+                priority
+                sizes="(max-width: 768px) 90vw, 340px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-lg sm:block">
+            <p className="text-[11px] uppercase tracking-wider text-slate-400">Stack</p>
+            <p className="text-sm font-semibold text-slate-800">Python · TypeScript · Next.js</p>
           </div>
         </motion.div>
       </div>
 
-      <a
-        href="#about"
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-zinc-400 sm:flex"
-      >
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
-        <ArrowDown size={16} className="animate-bounce" />
-      </a>
+      {/* Stats */}
+      <motion.div {...fade(0.4)} className="mx-auto mt-20 max-w-6xl px-6">
+        <div className="card grid grid-cols-2 divide-slate-100 md:grid-cols-4 md:divide-x">
+          {stats.map((s) => (
+            <div key={s.label} className="px-6 py-6 text-center md:text-left">
+              <p className="text-3xl font-semibold tracking-tight text-slate-900">{s.value}</p>
+              <p className="mt-1 text-sm text-slate-500">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }

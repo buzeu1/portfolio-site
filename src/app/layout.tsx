@@ -13,9 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://buzaucosmin.vercel.app"),
   title: "Buzau Cosmin-Ionut — AI Software Engineer",
   description:
-    "Portfolio of Buzau Cosmin-Ionut — AI Software Engineer building LLM-powered products, RAG pipelines and full-stack platforms.",
+    "Portfolio of Buzau Cosmin-Ionut — AI Software Engineer building LLM-powered products, machine-learning systems and production full-stack websites for real clients.",
+  openGraph: {
+    title: "Buzau Cosmin-Ionut — AI Software Engineer",
+    description:
+      "AI-powered apps, machine-learning systems and full-stack websites used in production every day.",
+    url: "https://buzaucosmin.vercel.app",
+    type: "website",
+    images: ["/profile.png"],
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#f2f2f4]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#fbfbfd] text-slate-900">{children}</body>
     </html>
   );
 }

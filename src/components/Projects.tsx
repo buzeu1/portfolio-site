@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 import ProjectCard from "@/components/ProjectCard";
 import { projects, categories, type ProjectCategory } from "@/data/portfolio";
 
@@ -12,34 +13,33 @@ export default function Projects() {
   const visible =
     active === "all" ? projects : projects.filter((p) => p.category === active);
 
+  const count = (id: "all" | ProjectCategory) =>
+    id === "all" ? projects.length : projects.filter((p) => p.category === id).length;
+
   return (
-    <section id="projects" className="relative bg-[#eaeaee] py-28">
+    <section id="projects" className="relative border-t border-slate-200/70 bg-white py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal>
-          <span className="text-sm font-semibold uppercase tracking-widest text-violet-600">
-            Projects
-          </span>
-          <h2 className="mt-3 max-w-2xl text-3xl font-bold text-zinc-900 sm:text-4xl">
-            A selection of things I&apos;ve shipped.
-          </h2>
-          <p className="mt-4 max-w-2xl text-zinc-500">
-            AI systems, production platforms for real businesses, and a game built from scratch.
-          </p>
-        </Reveal>
+        <SectionHeading
+          index="03"
+          eyebrow="Projects"
+          title="A selection of things I've built and shipped."
+          description="Machine-learning systems, LLM-powered apps, production platforms for real businesses — and a game written from scratch."
+        />
 
         <Reveal delay={0.08}>
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-10 inline-flex flex-wrap gap-1 rounded-full border border-slate-200 bg-slate-50 p-1">
             {categories.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setActive(c.id)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                   active === c.id
-                    ? "bg-zinc-900 text-white"
-                    : "border border-zinc-300 bg-white text-zinc-600 hover:border-zinc-500 hover:text-zinc-900"
+                    ? "bg-white text-slate-900 shadow-sm ring-1 ring-slate-200"
+                    : "text-slate-500 hover:text-slate-900"
                 }`}
               >
                 {c.label}
+                <span className="ml-1.5 font-mono text-xs text-slate-400">{count(c.id)}</span>
               </button>
             ))}
           </div>
@@ -47,8 +47,12 @@ export default function Projects() {
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
-            {visible.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+            {visible.map((project, i) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                wide={i === 0 && visible.length % 2 === 1}
+              />
             ))}
           </AnimatePresence>
         </div>

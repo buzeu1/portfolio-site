@@ -6,17 +6,30 @@ export const profile = {
   phone: "+40 721 850 827",
   github: "https://github.com/buzeu1",
   linkedin: "https://www.linkedin.com/in/cosmin-ionut-buzau/",
+  website: "https://buzaucosmin.vercel.app",
   cvPath: "/CV_Buzau_Cosmin_Ionut.pdf",
   photo: "/profile.png",
+  availability: "Open to Full Stack / Software Engineer / AI Engineer roles",
   tagline:
-    "Building AI-powered products end-to-end — from LLM integration and machine learning to production-grade full-stack platforms.",
-  bio: "Computer Science student at “Gheorghe Asachi” Technical University, Iași, building and shipping real products since 2024 — not side projects that stay on GitHub, but systems actual businesses and users run daily. Skilled in LLM integration, RAG pipelines, machine learning and workflow automation, deploying production systems with Python, Next.js, TypeScript, FastAPI and Supabase. A fast learner who thrives in new environments and adapts quickly across domains — always delivering results.",
+    "I build and ship real software — AI-powered apps, machine-learning systems and full-stack websites that paying clients use in production every day.",
+  bio: [
+    "Computer Science student at “Gheorghe Asachi” Technical University, Iași, who builds and ships real software: AI-powered apps, machine-learning systems and full-stack websites that paying clients use in production every day.",
+    "Strong with Python, TypeScript, Next.js and LLM integrations (Claude, Amazon Bedrock, RAG). Actively seeking a Full Stack / Software Engineer / AI Engineer role where I can own features end-to-end, from idea to production.",
+  ],
 };
+
+export const stats = [
+  { value: "3", label: "Production client websites" },
+  { value: "6+", label: "AI & software projects shipped" },
+  { value: "150+", label: "Organic visits / month (Compact Drive)" },
+  { value: "9", label: "Languages served by the NIMA blog" },
+];
 
 export const education = {
   school: "Universitatea Tehnică “Gheorghe Asachi”, Iași",
   degree: "Bachelor's in Progress — Computer Science and Information Technology",
   period: "Oct 2024 – Present",
+  location: "Iași, România",
 };
 
 export const achievements = [
@@ -26,45 +39,128 @@ export const achievements = [
     year: "2024",
   },
   {
-    value: "3+",
-    label: "Production websites & AI systems shipped for real clients",
-    year: "2024–2026",
+    value: "3",
+    label: "Production websites built for real paying clients",
+    year: "2025–2026",
   },
   {
-    value: "24/7",
+    value: "ML",
     label: "Engineered a self-retraining ML trading system (LightGBM + PyTorch)",
     year: "2026",
+  },
+];
+
+export const strengths = [
+  "End-to-end ownership — from idea to production",
+  "Fast learner, comfortable in new domains",
+  "Real experience with real clients — I ship, then maintain",
+  "Clear communication, honest estimates",
+];
+
+export const coursework = [
+  "Object-Oriented Programming (Advanced)",
+  "Data Structures & Algorithms",
+  "Databases",
+  "Computer Architecture & Assembly",
+  "Operating Systems (Linux)",
+];
+
+export const interests = [
+  "AI Agents & Automation",
+  "LLM Integration",
+  "AI Product Development",
+  "Machine Learning for Trading",
+];
+
+export const languages = [
+  { name: "Romanian", level: "Native" },
+  { name: "English", level: "B2" },
+];
+
+export type Experience = {
+  role: string;
+  company: string;
+  period: string;
+  meta: string;
+  points: string[];
+  clients?: { name: string; url: string; label: string; text: string }[];
+  tech: string[];
+};
+
+export const experience: Experience[] = [
+  {
+    role: "AI Software Engineer",
+    company: "NIMA SOFTWARE SRL",
+    period: "Aug 2026 – Sep 2026",
+    meta: "Remote · Project-based collaboration (1 month) · Product: CargoPlanning",
+    points: [
+      "Rebuilt the company blog (Symfony 6.1) from 17 hardcoded Twig templates into a flat-file Markdown system rendered dynamically in 9 languages, with every existing URL preserved.",
+      "Built the service that turns guest-post emails into publish-ready articles: AWS SES/SNS delivers the mail, a self-hosted LLM validates, rewrites and translates it, and a human approves through Git — with prompt-injection hardening.",
+    ],
+    tech: ["PHP", "Symfony 6.1", "Twig", "Markdown", "AWS SES", "AWS SNS", "Self-hosted LLM", "Git"],
+  },
+  {
+    role: "Freelance AI Software Engineer",
+    company: "Self-Employed",
+    period: "Jan 2025 – Present",
+    meta: "Iași · Remote",
+    points: [
+      "Build websites and AI automations end-to-end for real clients — design, code, database, deployment, domains and ongoing maintenance, all handled by me.",
+      "Automated repetitive business processes with AI: smart product search that survives typos and translations, voice requests turned into text, automatic offer and document generation (PDF), and customer-facing chat assistants.",
+      "Designed, built and maintain three production websites — each with its own admin flow, so the owners update content without ever needing a developer.",
+    ],
+    clients: [
+      {
+        name: "Aeron Termosistem",
+        url: "https://aerontermosistem.vercel.app",
+        label: "aerontermosistem.vercel.app",
+        text: "Construction & renovation company site on Next.js, MongoDB and Cloudinary — the client uploads photos himself and every lead lands in the database.",
+      },
+      {
+        name: "Compact Drive",
+        url: "https://compactdrive.ro",
+        label: "compactdrive.ro",
+        text: "Driving school platform on Next.js + Supabase — owner-run admin pages, instant enrollment emails, 150+ organic visits a month from Google.",
+      },
+      {
+        name: "Boeru's Doner",
+        url: "https://boerus-d.ro",
+        label: "boerus-d.ro",
+        text: "Fast-food chain platform with digital menu, promotions and a Leaflet map of the branches — 500+ visits in the last three months.",
+      },
+    ],
+    tech: ["Next.js", "TypeScript", "Supabase", "MongoDB", "Python", "FastAPI", "LLMs", "Vercel"],
   },
 ];
 
 export const skillGroups = [
   {
     title: "Programming Languages",
-    skills: ["Python", "TypeScript", "JavaScript", "Java", "C", "C++", "MQL5"],
+    skills: ["Python", "TypeScript", "JavaScript", "PHP", "Java", "C", "C++", "MQL5"],
   },
   {
     title: "Frameworks & Libraries",
-    skills: ["Next.js", "React", "FastAPI", "Flask", "Tailwind CSS", "LangChain", "Microsoft Bot Framework", "sentence-transformers"],
+    skills: ["Next.js", "React", "FastAPI", "Flask", "Symfony", "Tailwind CSS", "LangChain", "Microsoft Bot Framework", "sentence-transformers"],
   },
   {
     title: "Machine Learning",
     skills: ["PyTorch", "LightGBM", "XGBoost", "scikit-learn", "Optuna", "OpenCV", "pandas", "TensorFlow"],
   },
   {
-    title: "Databases & Backend",
-    skills: ["Supabase", "MongoDB", "Mongoose", "PostgreSQL", "pgvector", "SQLite", "REST APIs", "boto3"],
-  },
-  {
     title: "AI & Automation",
-    skills: ["LLM Integration", "RAG Pipelines", "Whisper", "Trading Automation", "Workflow Automation", "Anthropic Claude", "Amazon Bedrock"],
+    skills: ["LLM Integration", "Anthropic Claude", "Amazon Bedrock", "RAG Pipelines", "Whisper", "Workflow Automation", "Trading Automation"],
   },
   {
-    title: "DevOps & Tools",
-    skills: ["Docker", "Git", "GitHub", "Vercel", "Railway", "Linux", "AWS Lambda", "AWS S3", "AWS SAM", "CloudWatch", "OAuth2", "Azure AD"],
+    title: "Databases & Backend",
+    skills: ["Supabase", "MongoDB", "PostgreSQL", "pgvector", "SQLite", "REST APIs", "Mongoose", "boto3"],
+  },
+  {
+    title: "DevOps & Cloud",
+    skills: ["AWS Lambda", "AWS S3", "AWS SAM", "Amazon Bedrock", "AWS SES / SNS", "CloudWatch", "Docker", "Git", "GitHub", "Vercel", "Railway", "Linux", "OAuth2", "Azure AD"],
   },
   {
     title: "Integrations & Services",
-    skills: ["Cloudinary", "EmailJS", "Resend", "Leaflet", "ReportLab", "ngrok"],
+    skills: ["Cloudinary", "EmailJS", "Resend", "Leaflet", "ReportLab", "Telegram Bot API", "ngrok"],
   },
 ];
 
@@ -72,99 +168,170 @@ export type ProjectCategory = "ai" | "web" | "game";
 
 export const categories: { id: "all" | ProjectCategory; label: string }[] = [
   { id: "all", label: "All" },
-  { id: "ai", label: "AI & LLM" },
+  { id: "ai", label: "AI & ML" },
   { id: "web", label: "Client Websites" },
   { id: "game", label: "Game Dev" },
 ];
 
 export type Project = {
   title: string;
+  subtitle: string;
   description: string;
+  highlights: string[];
   tech: string[];
   category: ProjectCategory;
   github?: string;
   live?: string;
+  metric?: string;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    title: "Fără Agenții — Commission-Free Real Estate Marketplace",
+    title: "AI Trading Bot",
+    subtitle: "Self-Retraining ML System for MetaTrader 5",
     description:
-      "A marketplace that lets buyers and renters deal directly with property owners across Iași — no agents, no commissions. Owners and tenants message each other in real time, manage listings from their own dashboard, and can ask an AI assistant anything about the available properties — answers come from a LangChain RAG pipeline over the live listings database, not from the model's imagination. Every table is locked down with Row Level Security, so access control lives in the database itself.",
-    tech: ["Next.js 14", "TypeScript", "Supabase", "Claude API", "LangChain", "RAG", "pgvector"],
-    category: "ai",
-    github: "https://github.com/buzeu1/faraagentii",
-    featured: true,
-  },
-  {
-    title: "AI Trading Bot — Self-Retraining ML System for MetaTrader 5",
-    description:
-      "A trading bot for MetaTrader 5 that runs and improves itself, built on multi-year price history and engineered market features. Every night it backtests trading strategies against fresh market data to generate labeled trade signals and retrains two competing models on them — LightGBM followed by a PyTorch neural network — both periodically tuned with Optuna. Models are validated the honest way: only on data they have never seen, with realistic hour-of-day spread and slippage costs included. A new model only replaces the live one if it genuinely outperforms it out-of-sample — a safeguard against a bad training run silently degrading production — every trade needs a minimum expected profit after costs, and a kill switch stops everything if losses or model drift grow. The database, trained models and reports are backed up weekly to AWS S3, and live monitoring comes through a Flask dashboard plus daily Telegram status messages. Next step: extending the ML layer from entry filtering to active trade management — deciding when to hold, trail or exit an open position as market conditions evolve.",
+      "A trading bot for MetaTrader 5 that runs and improves itself, built on multi-year price history and engineered market features. Every night it backtests trading strategies against fresh market data to generate labeled trade signals and retrains two competing models on them — LightGBM followed by a PyTorch neural network — both periodically tuned with Optuna.",
+    highlights: [
+      "Honest validation: models are tested only on data they have never seen, with realistic hour-of-day spread and slippage costs.",
+      "A new model replaces the live one only if it genuinely outperforms it out-of-sample — no bad training run can silently degrade production.",
+      "Every trade needs a minimum expected profit after costs; a kill switch stops everything if losses or model drift grow.",
+      "Weekly backups of database, models and reports to AWS S3; live monitoring via a Flask dashboard and daily Telegram status messages.",
+      "Next step: extending the ML layer from entry filtering to active trade management — when to hold, trail or exit an open position.",
+    ],
     tech: ["Python", "PyTorch", "LightGBM", "scikit-learn", "Optuna", "Flask", "SQLite", "MQL5", "MetaTrader 5", "AWS S3"],
     category: "ai",
     github: "https://github.com/buzeu1/mt5-ai-trader",
+    metric: "Retrains nightly",
     featured: true,
   },
   {
-    title: "Sales Assistant Bot — Microsoft Teams",
+    title: "AI Chat Assistant",
+    subtitle: "Serverless AI on AWS with Amazon Bedrock",
     description:
-      "A Microsoft Teams bot that lets sales agents find the right product by describing it in plain language — or just saying it out loud. Queries resolve through three passes (exact SKU match, weighted fuzzy scoring, LLM verification) backed by multilingual semantic embeddings, so typos, synonyms and translated product names still land on the right item. Ambiguous matches trigger one smart clarifying question, confirmed offers export as ready-made PDFs, and Azure AD plugs it straight into the company's Microsoft 365 environment.",
-    tech: ["Python", "FastAPI", "Bot Framework SDK", "Azure AD", "Whisper", "RapidFuzz"],
-    category: "ai",
-    github: "https://github.com/buzeu1",
-    featured: true,
-  },
-  {
-    title: "AI Chat Assistant — AWS Lambda, API Gateway & Amazon Bedrock",
-    description:
-      "Two hands-on AWS builds. First, a serverless chat API: a Lambda function behind a single API Gateway route calls Claude through Amazon Bedrock, with the whole stack declared as infrastructure-as-code via AWS SAM and locked to a least-privilege IAM role, with CloudWatch wired in for observability. Second, a full Next.js website connected directly to Bedrock — a real-time chat interface that streams the model's answer token-by-token and renders it as formatted Markdown with syntax-highlighted code blocks.",
-    tech: ["Python", "AWS Lambda", "AWS SAM", "API Gateway", "Amazon Bedrock", "Next.js"],
+      "Two AWS builds around Amazon Bedrock. First, a serverless chat API — a Python Lambda behind API Gateway calls Claude, with the whole infrastructure written as code. Second, a Next.js 15 chat app that streams Claude's answer word-by-word into the browser, with the same instant feel as ChatGPT.",
+    highlights: [
+      "Infrastructure as code with AWS SAM; the IAM role has exactly one permission — invoking the model.",
+      "Token-by-token streaming rendered as formatted Markdown with syntax-highlighted code.",
+      "CloudWatch wired in for observability.",
+    ],
+    tech: ["Python", "AWS Lambda", "AWS SAM", "API Gateway", "Amazon Bedrock (Claude)", "Next.js 15", "TypeScript"],
     category: "ai",
     github: "https://github.com/buzeu1/ai-chat-bedrock-demo",
+    metric: "Least-privilege IAM",
     featured: true,
   },
   {
-    title: "EmotionCamera — Real-Time AI Emotion Recognition",
+    title: "Sales Assistant Bot",
+    subtitle: "AI Sales Bot for Microsoft Teams & Web",
     description:
-      "A web app that reads facial expressions live from your webcam — happy, sad, angry, fearful, surprised, disgusted or neutral. Each frame is downscaled, base64-encoded and streamed to a Python backend that classifies all 7 emotions with OpenCV and FER (TensorFlow), drawing bounding boxes and per-emotion probability bars straight back onto the video feed. The backend runs containerized on Railway, fully decoupled from the Next.js frontend on Vercel.",
-    tech: ["Next.js 14", "FastAPI", "OpenCV", "FER (TensorFlow)", "Docker", "Railway"],
+      "A sales bot for Microsoft Teams and web that answers questions about products, prices and offers — by text or voice. It finds the right product even with typos, synonyms or translated names.",
+    highlights: [
+      "Three-step search: exact code match, fuzzy scoring, then an LLM double-check — backed by multilingual embeddings.",
+      "When a request is unclear, it detects what is ambiguous (category, size or variant) and asks one short question to settle it.",
+      "Voice notes transcribed with Whisper large-v3; confirmed offers come back as PDFs generated on the spot.",
+      "Connects natively to Microsoft 365 through Azure AD (OAuth2).",
+    ],
+    tech: ["Python", "FastAPI", "Microsoft Bot Framework", "Azure AD (OAuth2)", "Groq (Llama 3.1)", "Whisper", "sentence-transformers", "ReportLab"],
+    category: "ai",
+    github: "https://github.com/buzeu1",
+    metric: "Text + voice",
+    featured: true,
+  },
+  {
+    title: "Fără Agenții",
+    subtitle: "Commission-Free Real Estate Marketplace",
+    description:
+      "A real estate platform where owners sell or rent directly to people — no agents, no commissions. Listings cover apartments, houses, land and commercial spaces across Iași, with search and filters by neighborhood, category and type.",
+    highlights: [
+      "Owners manage everything from a personal dashboard and chat live with interested buyers (Supabase Realtime).",
+      "Buyers save favorites and follow listing statistics.",
+      "AI assistant answers questions about the catalog using RAG (LangChain + Supabase pgvector).",
+      "Every database table protected with Row Level Security.",
+    ],
+    tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Supabase", "Realtime", "pgvector", "Claude API", "LangChain", "Vercel"],
+    category: "ai",
+    github: "https://github.com/buzeu1/faraagentii",
+    metric: "RAG + Realtime",
+    featured: true,
+  },
+  {
+    title: "EmotionCamera",
+    subtitle: "Real-Time Emotion Recognition",
+    description:
+      "A web app that reads emotions from the webcam in real time. The browser captures ~30 frames per second, shrinks each one on a hidden canvas and sends it to a Python backend that recognizes 7 facial expressions.",
+    highlights: [
+      "OpenCV + FER (TensorFlow) classify happy, sad, angry, fearful, surprised, disgusted and neutral.",
+      "Emotion, confidence and face position drawn live over the video as a colored overlay.",
+      "Backend containerized with Docker on Railway, frontend on Vercel.",
+    ],
+    tech: ["Next.js 14", "TypeScript", "FastAPI", "Python", "OpenCV", "FER (TensorFlow)", "Docker", "Railway", "Vercel"],
     category: "ai",
     github: "https://github.com/buzeu1/emotion-detector",
+    metric: "~30 FPS",
   },
   {
-    title: "Aerontermosistem — Construction & Renovation Company Website",
+    title: "Compact Drive",
+    subtitle: "Driving School Platform",
     description:
-      "A business website for a construction and renovation company in Roman, Neamț. Uploaded project photos stream directly to Cloudinary with their URLs persisted in MongoDB Atlas, the public gallery updates automatically — falling back gracefully to static images if the database is empty — and features a keyboard-navigable lightbox. Contact form submissions land straight in MongoDB.",
-    tech: ["Next.js 15", "TypeScript", "MongoDB Atlas", "Mongoose", "Cloudinary", "Vercel"],
+      "A platform for a driving school in Roman, Neamț. The owner manages the gallery and promotions alone from three simple admin pages, and enrollment requests arrive instantly by email.",
+    highlights: [
+      "Live gallery and promotions system backed by Supabase (PostgreSQL) — no developer needed for updates.",
+      "Complete local SEO: JSON-LD (AutomotiveBusiness, FAQPage, BreadcrumbList), per-page Open Graph, sitemap and robots.txt.",
+      "Technical SEO drives 150+ organic visits a month straight from Google Search.",
+    ],
+    tech: ["Next.js 14", "React 18", "Supabase", "PostgreSQL", "EmailJS", "Tailwind CSS"],
     category: "web",
-    github: "https://github.com/buzeu1/aerontermosistem",
-    live: "https://aerontermosistem.vercel.app",
+    github: "https://github.com/buzeu1/compactdrive",
+    live: "https://compactdrive.ro",
+    metric: "150+ visits / month",
   },
   {
-    title: "Boeru's Doner — Fast-Food Chain Web Platform",
+    title: "Boeru's Doner",
+    subtitle: "Fast-Food Chain Web Platform",
     description:
-      "A marketing and ordering platform for a fast-food chain with 5 locations across Moldova, Romania. A 50+ item digital menu across 9 categories with variants and badges, an interactive Leaflet map for finding the nearest branch, per-location Glovo/Wolt ordering links, and a franchise funnel with a routed contact form delivering via Resend. Every page ships its own Open Graph metadata and JSON-LD structured data — Restaurant schema per location plus a FAQ schema. Now bringing in real customers — 500+ visits in the last three months.",
+      "A marketing and ordering platform for a fast-food chain with 5 locations across Moldova, Romania — digital menu, promotions page and an interactive map of the branches.",
+    highlights: [
+      "50+ item digital menu across 9 categories with variants and badges.",
+      "Interactive Leaflet map, per-location Glovo / Wolt ordering links and a franchise funnel via Resend.",
+      "Open Graph + JSON-LD on every page (Restaurant schema per location, FAQ schema).",
+      "Bringing in real customers — 500+ visits in the last three months.",
+    ],
     tech: ["Next.js 16", "TypeScript", "Tailwind CSS", "React-Leaflet", "Resend", "Vercel"],
     category: "web",
     github: "https://github.com/buzeu1/boerusdoner",
     live: "https://boerus-d.ro",
+    metric: "500+ visits / 3 mo",
   },
   {
-    title: "Compact Drive — Driving School Platform",
+    title: "Aeron Termosistem",
+    subtitle: "Construction & Renovation Company Website",
     description:
-      "A platform for a driving school in Roman, Neamț — a live gallery and promotions system backed by Supabase that the owner updates independently, without a developer involved. Enrollment forms deliver instantly via EmailJS, and the local SEO stack is genuinely complete: JSON-LD schemas (AutomotiveBusiness, FAQPage, BreadcrumbList), per-page Open Graph metadata, sitemap and robots.txt. Technical SEO now drives 150+ organic visits a month straight from Google Search.",
-    tech: ["Next.js 14", "React 18", "Supabase", "EmailJS", "Tailwind CSS"],
+      "A business website for a construction and renovation company in Roman, Neamț. The client uploads photos himself and the gallery updates automatically; the contact form saves every lead straight to the database.",
+    highlights: [
+      "Photo uploads stream to Cloudinary, URLs persisted in MongoDB Atlas.",
+      "Gallery falls back gracefully to static images, with a keyboard-navigable lightbox.",
+      "Every contact-form lead stored in MongoDB.",
+    ],
+    tech: ["Next.js 15", "TypeScript", "MongoDB Atlas", "Mongoose", "Cloudinary", "Vercel"],
     category: "web",
-    github: "https://github.com/buzeu1/compactdrive",
-    live: "https://compactdrive.ro",
+    github: "https://github.com/buzeu1/aerontermosistem",
+    live: "https://aerontermosistem.vercel.app",
+    metric: "Self-managed gallery",
   },
   {
-    title: "Trapped in the Server — 2D Java Adventure Game",
+    title: "Trapped in the Server",
+    subtitle: "2D Java Game, No Engine",
     description:
-      "A 2D action-adventure game built entirely from scratch in Java, no engine underneath — the rendering pipeline, game loop and physics are all hand-written, running triple-buffered at 60 FPS. Across 3 levels the player fights through a side-scrolling platformer, a fog-of-war top-down maze and a final boss arena, on an architecture built with Singleton, State and Abstract Factory patterns, plus a SQLite save system that auto-migrates its schema.",
-    tech: ["Java", "Java2D / AWT", "Tiled (TMX)", "SQLite", "JDBC"],
+      "A 2D action-adventure game written in pure Java — custom game loop, rendering and physics at 60 FPS across three levels with different mechanics. Built in a two-person team for a university course.",
+    highlights: [
+      "Side-scrolling platformer, top-down exploration with fog-of-war and a button/door puzzle, and a final boss fight.",
+      "OOP design patterns end-to-end: Singleton, State, Abstract Factory; levels built in Tiled.",
+      "Progress (position, score, inventory, boss state) saved to SQLite and loaded back across sessions.",
+    ],
+    tech: ["Java", "Java2D / AWT", "Tiled (TMX)", "SQLite", "JDBC", "Design Patterns"],
     category: "game",
     github: "https://github.com/buzeu1/Trapped-In-The-Server",
+    metric: "60 FPS",
   },
 ];
