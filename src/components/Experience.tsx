@@ -5,8 +5,8 @@ import { experience } from "@/data/portfolio";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative border-t border-slate-200/70 bg-[#f7f8fb] py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="experience" className="relative border-t border-slate-200/70 bg-[#f7f8fb] py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <SectionHeading
           index="02"
           eyebrow="Experience"
@@ -23,7 +23,7 @@ export default function Experience() {
                 <div className="relative md:pl-12">
                   <span className="absolute left-0 top-8 hidden h-[15px] w-[15px] rounded-full border-[3px] border-white bg-indigo-600 shadow-[0_0_0_1px_rgba(79,70,229,0.35)] md:block" />
 
-                  <article className="card card-hover p-7 sm:p-8">
+                  <article className="card card-hover p-5 sm:p-8">
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <h3 className="text-xl font-semibold text-slate-900">{job.role}</h3>

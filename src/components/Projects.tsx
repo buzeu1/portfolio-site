@@ -17,22 +17,22 @@ export default function Projects() {
     id === "all" ? projects.length : projects.filter((p) => p.category === id).length;
 
   return (
-    <section id="projects" className="relative border-t border-slate-200/70 bg-white py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="projects" className="relative border-t border-slate-200/70 bg-[#f7f8fb] py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <SectionHeading
-          index="03"
+          index="04"
           eyebrow="Projects"
           title="A selection of things I've built and shipped."
           description="Machine-learning systems, LLM-powered apps, production platforms for real businesses — and a game written from scratch."
         />
 
         <Reveal delay={0.08}>
-          <div className="mt-10 inline-flex flex-wrap gap-1 rounded-full border border-slate-200 bg-slate-50 p-1">
+          <div className="mt-10 inline-flex flex-wrap gap-1 rounded-2xl border sm:rounded-full border-slate-200 bg-slate-50 p-1">
             {categories.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setActive(c.id)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                className={`rounded-full px-3.5 py-2 text-sm font-medium transition-all sm:px-4 ${
                   active === c.id
                     ? "bg-white text-slate-900 shadow-sm ring-1 ring-slate-200"
                     : "text-slate-500 hover:text-slate-900"

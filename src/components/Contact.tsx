@@ -18,8 +18,8 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative border-t border-slate-200/70 bg-white py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="contact" className="relative border-t border-slate-200/70 bg-white py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <SectionHeading
           index="05"
           eyebrow="Contact"
@@ -28,7 +28,7 @@ export default function Contact() {
 
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_1fr]">
           <Reveal delay={0.05}>
-            <div className="relative h-full overflow-hidden rounded-[1.25rem] bg-slate-900 p-8 text-white sm:p-10">
+            <div className="relative h-full overflow-hidden rounded-[1.25rem] bg-slate-900 p-6 text-white sm:p-10">
               <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-500/30 blur-3xl" />
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-emerald-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />

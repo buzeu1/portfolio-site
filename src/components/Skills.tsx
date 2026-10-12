@@ -7,10 +7,10 @@ const ICONS = [Code2, Layers, Brain, Bot, Database, Cloud, Plug];
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative border-t border-slate-200/70 bg-[#f7f8fb] py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="skills" className="relative border-t border-slate-200/70 bg-white py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <SectionHeading
-          index="04"
+          index="03"
           eyebrow="Skills"
           title="Tools I reach for when I build."
         />

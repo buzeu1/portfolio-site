@@ -18,7 +18,7 @@ export default function SectionHeading({
         <span className="h-px w-8 bg-indigo-200" />
         {eyebrow}
       </div>
-      <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-slate-900 sm:text-[2.6rem] sm:leading-[1.15]">
+      <h2 className="mt-4 max-w-3xl text-[1.75rem] font-semibold leading-tight tracking-tight text-slate-900 sm:text-[2.6rem] sm:leading-[1.15]">
         {title}
       </h2>
       {description && (

@@ -3,6 +3,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import {
   profile,
+  stats,
   education,
   achievements,
   strengths,
@@ -13,17 +14,33 @@ import {
 
 export default function About() {
   return (
-    <section id="about" className="relative border-t border-slate-200/70 bg-white py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="about" className="relative border-t border-slate-200/70 bg-white py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <SectionHeading
           index="01"
           eyebrow="About"
           title="Turning AI capabilities into products people actually use."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-[1.35fr_1fr]">
+        <Reveal delay={0.05}>
+          <div className="card mt-10 grid grid-cols-2 md:grid-cols-4">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`px-4 py-5 sm:px-6 sm:py-6 ${i % 2 === 1 ? "border-l border-slate-100" : ""} ${
+                  i >= 2 ? "border-t border-slate-100 md:border-t-0" : ""
+                } ${i === 2 ? "md:border-l" : ""}`}
+              >
+                <p className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">{s.value}</p>
+                <p className="mt-1 text-xs leading-snug text-slate-500 sm:text-sm">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1.35fr_1fr]">
           <Reveal delay={0.05}>
-            <div className="space-y-5 text-lg leading-relaxed text-slate-600">
+            <div className="space-y-5 text-base leading-relaxed text-slate-600 sm:text-lg">
               {profile.bio.map((p) => (
                 <p key={p}>{p}</p>
               ))}

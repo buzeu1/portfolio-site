@@ -15,11 +15,12 @@ export default function ProjectCard({ project, wide }: { project: Project; wide?
   return (
     <motion.article
       layout
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.98 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`card card-hover group relative flex h-full flex-col p-7 ${
+      initial={{ opacity: 0, scale: 0.97 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.97 }}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className={`card card-hover group relative flex h-full min-w-0 flex-col p-5 sm:p-7 ${
         wide ? "md:col-span-2" : ""
       }`}
     >
