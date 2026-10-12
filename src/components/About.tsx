@@ -12,11 +12,11 @@ import {
 
 export default function About() {
   const facts = [
-    { label: "Based in", value: `${profile.location} · open to remote` },
-    { label: "Education", value: `${education.degree.replace("Bachelor's in Progress — ", "BSc ")}, ${education.school}`, sub: education.period },
-    { label: "Focus", value: interests.join(" · ") },
+    { label: "Based in", value: `${profile.location} · Remote` },
+    { label: "Education", value: "BSc Computer Science & IT", sub: `TU “Gheorghe Asachi” Iași · ${education.period}` },
+    { label: "Focus", value: "AI agents, LLM integration, ML", sub: interests.join(" · ") },
     { label: "Languages", value: languages.map((l) => `${l.name} (${l.level})`).join(" · ") },
-    { label: "Availability", value: "Full-time, part-time or internship — available immediately" },
+    { label: "Available", value: "Immediately", sub: "Full-time, part-time or internship" },
   ];
 
   const columns = [
@@ -34,9 +34,9 @@ export default function About() {
           title="Turning AI capabilities into products people actually use."
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+        <div className="mt-12 grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <Reveal delay={0.05}>
-            <div className="space-y-5 text-base leading-[1.75] text-slate-600 sm:text-[17px]">
+            <div className="space-y-5 text-base leading-[1.8] text-slate-600 sm:text-[17px] lg:-mt-1">
               {profile.bio.map((p) => (
                 <p key={p}>{p}</p>
               ))}
@@ -44,15 +44,15 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <dl className="divide-y divide-slate-200 border-y border-slate-200">
+            <dl className="divide-y divide-slate-200 border-b border-slate-200">
               {facts.map((f) => (
-                <div key={f.label} className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[120px_1fr] sm:gap-6">
+                <div key={f.label} className="grid grid-cols-[100px_1fr] gap-4 py-3.5 first:pt-0 sm:grid-cols-[120px_1fr] sm:gap-6">
                   <dt className="text-xs font-medium uppercase tracking-wider text-slate-400 sm:pt-0.5">
                     {f.label}
                   </dt>
                   <dd className="text-[15px] leading-relaxed text-slate-800">
                     {f.value}
-                    {f.sub && <span className="ml-2 font-mono text-xs text-slate-400">{f.sub}</span>}
+                    {f.sub && <span className="mt-0.5 block text-[13px] text-slate-400">{f.sub}</span>}
                   </dd>
                 </div>
               ))}

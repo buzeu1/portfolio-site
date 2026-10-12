@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#fbfbfd] pb-16 pt-28 md:pb-0 md:pt-24"
+      className="relative overflow-hidden bg-[#fbfbfd] pb-16 pt-28 sm:pt-32 md:pb-28 md:pt-36"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -139,7 +139,7 @@ export default function Hero() {
 
       <a
         href="#about"
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-slate-400 md:flex"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-slate-400 md:flex"
       >
         <span className="text-xs uppercase tracking-widest">Scroll</span>
         <ArrowDown size={16} className="animate-bounce" />

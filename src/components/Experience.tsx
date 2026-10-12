@@ -35,7 +35,27 @@ export default function Experience() {
                     </div>
                     <p className="mt-2 text-sm text-slate-400">{job.meta}</p>
 
-                    <ul className="mt-6 space-y-3">
+                    {job.summary && (
+                      <p className="mt-5 text-[15px] leading-relaxed text-slate-700">{job.summary}</p>
+                    )}
+
+                    {job.metrics && (
+                      <div className="mt-6 grid grid-cols-2 overflow-hidden rounded-xl border border-slate-200 bg-slate-50/60 md:grid-cols-4">
+                        {job.metrics.map((m, idx) => (
+                          <div
+                            key={m.label}
+                            className={`px-4 py-4 ${idx % 2 === 1 ? "border-l border-slate-200" : ""} ${
+                              idx >= 2 ? "border-t border-slate-200 md:border-t-0" : ""
+                            } ${idx === 2 ? "md:border-l" : ""}`}
+                          >
+                            <p className="text-xl font-semibold tracking-tight text-slate-900">{m.value}</p>
+                            <p className="mt-0.5 text-xs leading-snug text-slate-500">{m.label}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <ul className={`mt-6 ${job.points.length > 4 ? "grid gap-x-8 gap-y-3 md:grid-cols-2" : "space-y-3"}`}>
                       {job.points.map((p) => (
                         <li key={p} className="flex gap-3 text-[15px] leading-relaxed text-slate-600">
                           <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />

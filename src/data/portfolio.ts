@@ -75,6 +75,8 @@ export type Experience = {
   company: string;
   period: string;
   meta: string;
+  summary?: string;
+  metrics?: { value: string; label: string }[];
   points: string[];
   clients?: { name: string; url: string; label: string; text: string }[];
   tech: string[];
@@ -86,9 +88,22 @@ export const experience: Experience[] = [
     company: "NIMA SOFTWARE SRL",
     period: "Aug 2026 – Sep 2026",
     meta: "Remote · Project-based collaboration (1 month) · Product: CargoPlanning",
+    summary:
+      "Owned two pieces of the CargoPlanning website end-to-end: the rebuild of the multilingual company blog, and an AI pipeline that turns guest-post emails into publish-ready articles — from architecture to delivery, in one month.",
+    metrics: [
+      { value: "17 → 0", label: "Hardcoded Twig templates" },
+      { value: "9", label: "Languages rendered dynamically" },
+      { value: "100%", label: "Existing URLs preserved" },
+      { value: "1 mo", label: "From kickoff to delivery" },
+    ],
     points: [
-      "Rebuilt the company blog (Symfony 6.1) from 17 hardcoded Twig templates into a flat-file Markdown system rendered dynamically in 9 languages, with every existing URL preserved.",
-      "Built the service that turns guest-post emails into publish-ready articles: AWS SES/SNS delivers the mail, a self-hosted LLM validates, rewrites and translates it, and a human approves through Git — with prompt-injection hardening.",
+      "Rebuilt the company blog (Symfony 6.1) from 17 hardcoded Twig templates into a flat-file Markdown system — every article is now a single Markdown file instead of a hand-written template.",
+      "Articles are rendered dynamically in 9 languages from one shared layout, so adding or editing a post no longer means touching code.",
+      "Preserved every existing URL during the migration — no broken links and no lost search rankings.",
+      "Built the service that turns guest-post emails into publish-ready articles: AWS SES receives the mail and SNS delivers it to the service.",
+      "A self-hosted LLM validates each submission, rewrites it into a clean, publish-ready article and translates it into the blog's languages.",
+      "Human-in-the-loop publishing: generated articles go through Git, where an editor reviews and approves them before anything goes live.",
+      "Prompt-injection hardening — incoming email content is treated as untrusted data, so a malicious submission can't hijack the model's instructions.",
     ],
     tech: ["PHP", "Symfony 6.1", "Twig", "Markdown", "AWS SES", "AWS SNS", "Self-hosted LLM", "Git"],
   },
