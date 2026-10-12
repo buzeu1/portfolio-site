@@ -18,13 +18,6 @@ export const profile = {
   ],
 };
 
-export const stats = [
-  { value: "3", label: "Production client websites" },
-  { value: "6+", label: "AI & software projects shipped" },
-  { value: "150+", label: "Organic visits / month (Compact Drive)" },
-  { value: "9", label: "Languages served by the NIMA blog" },
-];
-
 export const education = {
   school: "Universitatea Tehnică “Gheorghe Asachi”, Iași",
   degree: "Bachelor's in Progress — Computer Science and Information Technology",

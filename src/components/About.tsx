@@ -1,9 +1,7 @@
-import { GraduationCap, Trophy, CheckCircle2, BookOpen, Sparkles, Languages } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import {
   profile,
-  stats,
   education,
   achievements,
   strengths,
@@ -13,6 +11,20 @@ import {
 } from "@/data/portfolio";
 
 export default function About() {
+  const facts = [
+    { label: "Based in", value: `${profile.location} · open to remote` },
+    { label: "Education", value: `${education.degree.replace("Bachelor's in Progress — ", "BSc ")}, ${education.school}`, sub: education.period },
+    { label: "Focus", value: interests.join(" · ") },
+    { label: "Languages", value: languages.map((l) => `${l.name} (${l.level})`).join(" · ") },
+    { label: "Availability", value: "Full-time, part-time or internship — available immediately" },
+  ];
+
+  const columns = [
+    { title: "Achievements", items: achievements.map((a) => ({ text: a.label, meta: a.year })) },
+    { title: "How I work", items: strengths.map((s) => ({ text: s, meta: "" })) },
+    { title: "Coursework", items: coursework.map((c) => ({ text: c, meta: "" })) },
+  ];
+
   return (
     <section id="about" className="relative border-t border-slate-200/70 bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
@@ -22,126 +34,53 @@ export default function About() {
           title="Turning AI capabilities into products people actually use."
         />
 
-        <Reveal delay={0.05}>
-          <div className="card mt-10 grid grid-cols-2 md:grid-cols-4">
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`px-4 py-5 sm:px-6 sm:py-6 ${i % 2 === 1 ? "border-l border-slate-100" : ""} ${
-                  i >= 2 ? "border-t border-slate-100 md:border-t-0" : ""
-                } ${i === 2 ? "md:border-l" : ""}`}
-              >
-                <p className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">{s.value}</p>
-                <p className="mt-1 text-xs leading-snug text-slate-500 sm:text-sm">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-
-        <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1.35fr_1fr]">
+        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <Reveal delay={0.05}>
-            <div className="space-y-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+            <div className="space-y-5 text-base leading-[1.75] text-slate-600 sm:text-[17px]">
               {profile.bio.map((p) => (
                 <p key={p}>{p}</p>
               ))}
             </div>
-
-            <div className="card mt-10 flex items-start gap-4 p-6">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
-                <GraduationCap size={22} />
-              </div>
-              <div className="flex-1">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <p className="font-semibold text-slate-900">{education.school}</p>
-                  <p className="font-mono text-xs text-slate-400">{education.period}</p>
-                </div>
-                <p className="mt-1 text-sm text-slate-600">{education.degree}</p>
-                <p className="mt-1 text-sm text-slate-400">{education.location}</p>
-              </div>
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div className="card p-6">
-                <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-900">
-                  <BookOpen size={16} className="text-indigo-600" />
-                  Relevant Coursework
-                </h3>
-                <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                  {coursework.map((c) => (
-                    <li key={c} className="flex gap-2">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-400" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="card p-6">
-                <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-900">
-                  <Sparkles size={16} className="text-indigo-600" />
-                  Interests
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {interests.map((i) => (
-                    <span
-                      key={i}
-                      className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
-                    >
-                      {i}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="mt-6 flex items-center gap-2 text-sm font-semibold text-slate-900">
-                  <Languages size={16} className="text-indigo-600" />
-                  Languages
-                </h3>
-                <div className="mt-3 space-y-1.5 text-sm">
-                  {languages.map((l) => (
-                    <div key={l.name} className="flex justify-between">
-                      <span className="text-slate-700">{l.name}</span>
-                      <span className="text-slate-400">{l.level}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </Reveal>
 
-          <Reveal delay={0.15}>
-            <div className="space-y-6">
-              <div className="card p-6">
-                <h3 className="flex items-center gap-2 text-sm font-semibold text-slate-900">
-                  <Trophy size={16} className="text-indigo-600" />
-                  Achievements
-                </h3>
-                <div className="mt-5 space-y-5">
-                  {achievements.map((a) => (
-                    <div key={a.label} className="flex gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-indigo-100 bg-indigo-50/60 text-sm font-bold text-indigo-700">
-                        {a.value}
-                      </div>
-                      <div>
-                        <p className="text-sm leading-snug text-slate-700">{a.label}</p>
-                        <p className="mt-1 font-mono text-xs text-slate-400">{a.year}</p>
-                      </div>
-                    </div>
-                  ))}
+          <Reveal delay={0.12}>
+            <dl className="divide-y divide-slate-200 border-y border-slate-200">
+              {facts.map((f) => (
+                <div key={f.label} className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[120px_1fr] sm:gap-6">
+                  <dt className="text-xs font-medium uppercase tracking-wider text-slate-400 sm:pt-0.5">
+                    {f.label}
+                  </dt>
+                  <dd className="text-[15px] leading-relaxed text-slate-800">
+                    {f.value}
+                    {f.sub && <span className="ml-2 font-mono text-xs text-slate-400">{f.sub}</span>}
+                  </dd>
                 </div>
-              </div>
-
-              <div className="card p-6">
-                <h3 className="text-sm font-semibold text-slate-900">How I work</h3>
-                <ul className="mt-4 space-y-3">
-                  {strengths.map((s) => (
-                    <li key={s} className="flex gap-3 text-sm text-slate-600">
-                      <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-emerald-500" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              ))}
+            </dl>
           </Reveal>
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-16 grid grid-cols-1 gap-10 border-t border-slate-200 pt-10 md:grid-cols-3 md:gap-0">
+            {columns.map((col, i) => (
+              <div key={col.title} className={i > 0 ? "md:border-l md:border-slate-200 md:pl-10" : "md:pr-10"}>
+                <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-900">
+                  {col.title}
+                </h3>
+                <ul className="mt-5 space-y-3.5">
+                  {col.items.map((item) => (
+                    <li key={item.text} className="text-[15px] leading-snug text-slate-600">
+                      {item.text}
+                      {item.meta && (
+                        <span className="ml-2 font-mono text-xs text-slate-400">{item.meta}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
