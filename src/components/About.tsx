@@ -13,10 +13,10 @@ import {
 export default function About() {
   const facts = [
     { label: "Based in", value: `${profile.location} · Remote` },
-    { label: "Education", value: "BSc Computer Science & IT", sub: `TU “Gheorghe Asachi” Iași · ${education.period}` },
+    { label: "Education", value: "B.Sc. Computer Science & IT", sub: `TU “Gheorghe Asachi” Iași · ${education.period}` },
     { label: "Focus", value: "AI agents, LLM integration, ML", sub: interests.join(" · ") },
     { label: "Languages", value: languages.map((l) => `${l.name} (${l.level})`).join(" · ") },
-    { label: "Available", value: "Immediately", sub: "Full-time, part-time or internship" },
+    { label: "Available", value: "Immediately", sub: "Full-time, part-time, internship or B2B" },
   ];
 
   const columns = [

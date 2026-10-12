@@ -38,7 +38,7 @@ export default function Contact() {
                 Open to Full Stack / Software Engineer / AI Engineer roles.
               </p>
               <p className="mt-4 leading-relaxed text-slate-300">
-                Full-time, part-time or internship — on-site in Iași or remote. If you&apos;re
+                Full-time, part-time, internship or B2B collaboration — in Iași or remote. If you&apos;re
                 working on something interesting, I&apos;d love to hear about it.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

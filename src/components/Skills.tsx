@@ -1,9 +1,9 @@
-import { Code2, Layers, Brain, Bot, Database, Cloud, Plug } from "lucide-react";
+import { Code2, Layers, Brain, Database, Cloud, Plug } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { skillGroups } from "@/data/portfolio";
 
-const ICONS = [Code2, Layers, Brain, Bot, Database, Cloud, Plug];
+const ICONS = [Code2, Layers, Brain, Cloud, Database, Plug];
 
 export default function Skills() {
   return (
