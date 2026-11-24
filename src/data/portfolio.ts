@@ -13,7 +13,7 @@ export const profile = {
   tagline:
     "I build AI pipelines on self-hosted LLMs, AI agents and full-stack websites that paying clients use in production.",
   bio: [
-    "Computer Science student at “Gheorghe Asachi” Technical University, Iași, and AI Software Engineer. At NIMA Software I built an on-premise AI medical scribe on self-hosted open-weight models and an AI email-to-article pipeline in 9 languages; as a freelancer I run 3 production websites for paying clients end-to-end.",
+    "Computer Science student at “Gheorghe Asachi” Technical University, Iași, and AI Software Engineer. In my most recent B2B contract I built an on-premise AI medical scribe on self-hosted open-weight models and an AI email-to-article pipeline in 9 languages; as a freelancer I run 3 production websites for paying clients end-to-end.",
     "Strong with Python, TypeScript, FastAPI, Next.js and LLM integration — self-hosted LLMs (Qwen, Llama), Hugging Face, Claude API, RAG and prompt-injection defense — on AWS. Open to AI Engineer / Software Engineer / Full-Stack roles: full-time, part-time, internship or B2B collaboration, in Iași or remote.",
   ],
 };
