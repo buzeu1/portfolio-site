@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://buzaucosmin.vercel.app"),
   title: "Buzau Cosmin-Ionut — AI Software Engineer",
   description:
-    "Portfolio of Buzau Cosmin-Ionut — AI Software Engineer building LLM-powered products, machine-learning systems and production full-stack websites for real clients.",
+    "Portfolio of Buzau Cosmin-Ionut — AI Software Engineer building AI pipelines on self-hosted LLMs, AI agents and production full-stack websites for real clients.",
   openGraph: {
     title: "Buzau Cosmin-Ionut — AI Software Engineer",
     description:
-      "AI-powered apps, machine-learning systems and full-stack websites used in production every day.",
+      "AI pipelines on self-hosted LLMs, AI agents and full-stack websites used in production.",
     url: "https://buzaucosmin.vercel.app",
     type: "website",
     images: ["/profile.png"],

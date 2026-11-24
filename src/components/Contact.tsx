@@ -35,7 +35,7 @@ export default function Contact() {
                 Available immediately
               </span>
               <p className="mt-6 text-2xl font-semibold leading-snug">
-                Open to Full Stack / Software Engineer / AI Engineer roles.
+                Open to AI Engineer / Software Engineer / Full-Stack roles.
               </p>
               <p className="mt-4 leading-relaxed text-slate-300">
                 Full-time, part-time, internship or B2B collaboration — in Iași or remote. If you&apos;re

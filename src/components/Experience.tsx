@@ -11,7 +11,7 @@ export default function Experience() {
           index="02"
           eyebrow="Experience"
           title="Shipping for companies and real clients."
-          description="From rebuilding a multilingual company blog with an LLM publishing pipeline, to designing, building and maintaining production websites for paying clients."
+          description="From an on-premise AI medical scribe on self-hosted open-weight models and an AI email-to-article pipeline in 9 languages, to production websites for paying clients."
         />
 
         <div className="relative mt-14">
@@ -55,14 +55,43 @@ export default function Experience() {
                       </div>
                     )}
 
-                    <ul className={`mt-6 ${job.points.length > 4 ? "grid gap-x-8 gap-y-3 md:grid-cols-2" : "space-y-3"}`}>
-                      {job.points.map((p) => (
-                        <li key={p} className="flex gap-3 text-[15px] leading-relaxed text-slate-600">
-                          <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
+                    {job.points.length > 0 && (
+                      <ul className={`mt-6 ${job.points.length > 4 ? "grid gap-x-8 gap-y-3 md:grid-cols-2" : "space-y-3"}`}>
+                        {job.points.map((p) => (
+                          <li key={p} className="flex gap-3 text-[15px] leading-relaxed text-slate-600">
+                            <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {job.projects && (
+                      <div className="mt-6 space-y-5">
+                        {job.projects.map((proj) => (
+                          <div key={proj.name} className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-6">
+                            <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                              <p className="font-semibold text-slate-900">
+                                {proj.name}
+                                <span className="font-normal text-slate-500"> — {proj.client}</span>
+                              </p>
+                              <span className="w-fit shrink-0 font-mono text-xs text-slate-500">{proj.period}</span>
+                            </div>
+                            <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
+                              <span className="font-medium text-slate-500">Stack:</span> {proj.stack}
+                            </p>
+                            <ul className="mt-4 space-y-2.5">
+                              {proj.points.map((p) => (
+                                <li key={p} className="flex gap-3 text-[15px] leading-relaxed text-slate-600">
+                                  <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                                  {p}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
                     {job.clients && (
                       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">

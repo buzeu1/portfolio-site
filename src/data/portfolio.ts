@@ -9,36 +9,36 @@ export const profile = {
   website: "https://buzaucosmin.vercel.app",
   cvPath: "/CV_Buzau_Cosmin_Ionut.pdf",
   photo: "/profile.png",
-  availability: "Open to Full Stack / Software Engineer / AI Engineer roles",
+  availability: "Open to AI Engineer / Software Engineer / Full-Stack roles",
   tagline:
-    "I build and ship real software — AI-powered apps, machine-learning systems and full-stack websites that paying clients use in production every day.",
+    "I build AI pipelines on self-hosted LLMs, AI agents and full-stack websites that paying clients use in production.",
   bio: [
-    "Computer Science student at “Gheorghe Asachi” Technical University, Iași, who builds and ships real software: AI-powered apps, machine-learning systems and full-stack websites that paying clients use in production every day.",
-    "Strong with Python, TypeScript, Next.js and LLM integrations (Claude, Amazon Bedrock, RAG). Actively seeking a Full Stack / Software Engineer / AI Engineer role where I can own features end-to-end, from idea to production.",
+    "Computer Science student at “Gheorghe Asachi” Technical University, Iași, and AI Software Engineer. At NIMA Software I built an on-premise AI medical scribe on self-hosted open-weight models and an AI email-to-article pipeline in 9 languages; as a freelancer I run 3 production websites for paying clients end-to-end.",
+    "Strong with Python, TypeScript, FastAPI, Next.js and LLM integration — self-hosted LLMs (Qwen, Llama), Hugging Face, Claude API, RAG and prompt-injection defense — on AWS. Open to AI Engineer / Software Engineer / Full-Stack roles: full-time, part-time, internship or B2B collaboration, in Iași or remote.",
   ],
 };
 
 export const education = {
   school: "Technical University “Gheorghe Asachi” of Iași",
-  degree: "B.Sc. in Computer Science and Information Technology",
-  period: "Oct 2024 – 2027 (Expected)",
+  degree: "B.Eng. in Computer Science and Information Technology",
+  period: "Oct 2024 – 2028 (Expected)",
   location: "Iași, România",
 };
 
 export const achievements = [
   {
-    value: "Top",
-    label: "Performance scholarship recipient; admitted among the top applicants to the program",
+    value: "26 / 886",
+    label: "Performance scholarship recipient; ranked 26th out of 886 applicants at admission",
     year: "2024",
   },
   {
     value: "3",
-    label: "Production websites delivered and maintained for paying clients",
+    label: "Production websites run end-to-end for paying clients",
     year: "2025–2026",
   },
   {
-    value: "ML",
-    label: "Self-retraining ML trading system with two exit agents managing open trades",
+    value: "1,300+",
+    label: "Tests on an on-premise AI medical scribe built on 3 self-hosted open-weight models",
     year: "2026",
   },
 ];
@@ -59,15 +59,23 @@ export const coursework = [
 
 export const interests = [
   "AI Agents & Automation",
+  "Self-hosted LLMs",
   "LLM Integration",
   "AI Product Development",
-  "Machine Learning for Trading",
 ];
 
 export const languages = [
   { name: "Romanian", level: "Native" },
   { name: "English", level: "B2" },
 ];
+
+export type ExperienceProject = {
+  name: string;
+  client: string;
+  period: string;
+  stack: string;
+  points: string[];
+};
 
 export type Experience = {
   role: string;
@@ -77,6 +85,7 @@ export type Experience = {
   summary?: string;
   metrics?: { value: string; label: string }[];
   points: string[];
+  projects?: ExperienceProject[];
   clients?: { name: string; url: string; label: string; text: string }[];
   tech: string[];
 };
@@ -84,16 +93,39 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     role: "AI Software Engineer",
-    company: "NIMA SOFTWARE SRL",
-    period: "Aug 2026 – Sep 2026",
-    meta: "Remote · Project-based contract · Product: CargoPlanning",
-    points: [
-      "Rebuilt the company blog (Symfony 6.1) from 17 hardcoded Twig templates into a flat-file Markdown system rendered dynamically in 9 languages, with every existing URL preserved.",
-      "Built an event-driven email-to-article pipeline for guest posts: an AWS SES receipt rule stores each raw email in S3 and notifies an SNS topic, triggering a service that parses the MIME message (sender, body, Word/PDF attachments, images) into a structured draft.",
-      "Integrated a self-hosted LLM (Qwen) that classifies each email (submission, request, spam) and checks topic, links and images; the author's text is kept verbatim and translated into all 9 languages, with no data sent to a third-party AI API. Output goes live only after an editor reviews and commits it.",
-      "Hardened the pipeline against prompt injection: email content is isolated as untrusted data behind markers the sender cannot forge, and the model's output must match a fixed format — 790 adversarial test cases confirm that even a manipulated model cannot change the outcome.",
+    company: "NIMA Software",
+    period: "Aug 2026 – Nov 2026",
+    meta: "Iași · Remote · Project-based contract — 2 projects",
+    points: [],
+    projects: [
+      {
+        name: "AI Medical Scribe",
+        client: "Physiotherapy clinic",
+        period: "Oct 2026 – Nov 2026",
+        stack: "Python, FastAPI, Hugging Face, AWS (SageMaker, EC2, S3), Dramatiq, Redis, PostgreSQL, Docker",
+        points: [
+          "Built an on-premise AI pipeline that turns a recorded Romanian therapy session into a pre-filled patient record, so the therapist reviews a draft instead of writing it from scratch.",
+          "Self-hosted 3 open-weight models from Hugging Face: Whisper large-v3 (transcription), pyannote (speaker diarization) and Qwen3.8 27B via LiteLLM (data extraction); no patient data reaches third-party AI APIs.",
+          "Designed a multi-round LLM extraction pipeline for an 8k context window: it indexes the transcript by topic, extracts each field group from only the relevant turns and keeps the patient's final, corrected answer.",
+          "FastAPI backend with a Dramatiq/Redis GPU job queue and PostgreSQL for job state and results; crash-safe checkpoints, signed callbacks with retries, 1,300+ tests and CI.",
+          "Recordings pulled from Amazon S3 via short-lived presigned URLs, with no AWS credentials on the service.",
+          "Tested the pipeline on AWS SageMaker, an EC2 g6.xlarge (NVIDIA L4 GPU) and the client's own virtual machine, comparing several open-weight LLMs to pick the best fit.",
+        ],
+      },
+      {
+        name: "Multilingual Blog & AI Email-to-Article Pipeline",
+        client: "CargoPlanning",
+        period: "Aug 2026 – Sep 2026",
+        stack: "PHP, Symfony 6.4, Twig, Python, Ollama (Qwen), AWS (SES, S3, SNS), Docker, Git",
+        points: [
+          "Re-architected the company blog into a flat-file Markdown system in 9 languages: new articles ship without code changes and every existing URL was preserved for SEO.",
+          "Built an event-driven pipeline (AWS SES → S3 → SNS) that turns each email, with its Word/PDF attachments and images, into a structured article draft for the blog.",
+          "Used a self-hosted LLM (Qwen) to classify each email and check its links and images, with no third-party AI API; the text is translated into all 9 languages and goes live only after an editor reviews it.",
+          "Hardened the pipeline against prompt injection (unforgeable data markers, strict output schema) and verified it with 790 adversarial tests; none altered the pipeline's outcome.",
+        ],
+      },
     ],
-    tech: ["PHP", "Symfony 6.1", "AWS SES", "AWS S3", "AWS SNS", "Qwen (self-hosted LLM)", "Markdown", "Git"],
+    tech: ["Python", "FastAPI", "Hugging Face", "Whisper", "pyannote", "Qwen", "LiteLLM", "Dramatiq", "Redis", "PostgreSQL", "AWS", "PHP", "Symfony 6.4", "Ollama", "Docker"],
   },
   {
     role: "Full-Stack & AI Developer",
@@ -101,57 +133,56 @@ export const experience: Experience[] = [
     period: "Jan 2025 – Present",
     meta: "Iași · Remote",
     points: [
-      "Deliver and maintain 3 production websites for paying clients end-to-end — design, code, database, deployment and domains — each with an admin flow so owners update content without a developer.",
-      "Design and ship AI automations for business clients (chat assistants, voice and document processing, smart search), e.g. turning photographed receipts into accountant-ready Excel data.",
+      "Build custom AI automations and run 3 production websites for paying clients end-to-end — design, code, database, deployment, domains and ongoing maintenance — each with an admin panel for content updates.",
     ],
     clients: [
       {
         name: "Compact Drive",
         url: "https://compactdrive.ro",
         label: "compactdrive.ro",
-        text: "Driving school platform on Next.js + Supabase; technical SEO drives 150+ organic visits/month from Google, and enrollment requests arrive instantly by email.",
+        text: "Driving school platform on Next.js + Supabase with automated email notifications for new enrollments; technical SEO drives 150+ organic visits/month from Google.",
       },
       {
         name: "Boeru's Doner",
         url: "https://boerus-d.ro",
         label: "boerus-d.ro",
-        text: "Fast-food chain platform on Next.js + Tailwind with digital menu, promotions and a Leaflet map of branches.",
+        text: "Website for a fast-food chain on Next.js + Tailwind with digital menu, promotions and a Leaflet map of branches.",
       },
       {
         name: "Aeron Termosistem",
         url: "https://aerontermosistem.vercel.app",
         label: "aerontermosistem.vercel.app",
-        text: "Construction site on Next.js, MongoDB and Cloudinary; client-managed gallery, leads saved to the DB.",
+        text: "Website for a construction company on Next.js, MongoDB and Cloudinary; client-managed gallery.",
       },
     ],
-    tech: ["Next.js", "TypeScript", "Supabase", "MongoDB", "Python", "LLMs", "Vercel"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "MongoDB", "Cloudinary", "Python", "Vercel"],
   },
 ];
 
 export const skillGroups = [
   {
     title: "Programming Languages",
-    skills: ["Python", "TypeScript", "JavaScript", "PHP", "Java", "C", "C++", "MQL5"],
+    skills: ["Python", "TypeScript", "JavaScript", "PHP", "Java", "C", "C++"],
   },
   {
-    title: "Frameworks & Libraries",
-    skills: ["Next.js", "React", "FastAPI", "Flask", "Symfony", "Tailwind CSS", "LangChain", "Microsoft Bot Framework"],
+    title: "Frameworks",
+    skills: ["Next.js", "React", "FastAPI", "Flask", "Symfony", "Tailwind CSS", "LangChain", "Dramatiq"],
   },
   {
-    title: "AI & Machine Learning",
-    skills: ["LLM Integration", "AI Agents", "RAG", "Claude", "Qwen", "Llama (Groq)", "Whisper", "PyTorch", "LightGBM", "Optuna", "OpenCV", "TensorFlow"],
+    title: "AI & ML",
+    skills: ["LLM integration", "AI agents", "RAG", "Self-hosted LLMs (Qwen, Llama)", "Ollama", "LiteLLM", "Prompt-injection defense", "LLM evaluation", "Claude API", "Hugging Face", "Whisper", "pyannote"],
   },
   {
     title: "Cloud & DevOps",
-    skills: ["AWS Lambda", "AWS S3", "AWS SES", "AWS SNS", "AWS SAM", "Amazon Bedrock", "Docker", "Git", "Linux", "Vercel", "Railway", "Azure AD"],
+    skills: ["AWS S3", "AWS EC2", "AWS SageMaker", "AWS IAM", "AWS Lambda", "AWS SES", "AWS SNS", "AWS SAM", "Amazon Bedrock", "Docker", "Git", "GitHub Actions", "Linux", "Vercel"],
   },
   {
     title: "Databases",
-    skills: ["PostgreSQL", "Supabase", "MongoDB", "SQLite", "Row Level Security"],
+    skills: ["PostgreSQL", "Redis", "Supabase", "MongoDB", "SQLite", "MariaDB", "Oracle Database"],
   },
   {
-    title: "Integrations & Services",
-    skills: ["Cloudinary", "EmailJS", "Resend", "Leaflet", "ReportLab", "Telegram Bot API"],
+    title: "Spoken Languages",
+    skills: ["Romanian (native)", "English (B2)"],
   },
 ];
 export type ProjectCategory = "ai" | "web" | "game";
@@ -180,15 +211,15 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "AI Trading Bot",
-    subtitle: "Self-Retraining ML System for MetaTrader 5",
+    subtitle: "AI Agents & Data Pipeline for MetaTrader 5",
     description:
-      "Self-improving MetaTrader 5 bot built on multi-year price history and engineered market features; every night it backtests strategies on fresh data to generate labeled signals and retrains two competing models (LightGBM, then a PyTorch network), periodically tuned with Optuna. Connected to two exit agents that manage open trades.",
+      "Two-person project: my teammate builds the ML models and strategy; I own the AI agents, data pipeline and infrastructure.",
     highlights: [
-      "AI exit agent: reads the Forex Factory calendar and closes positions exposed to high-impact news.",
-      "Rule-based exit agent: reviews each trade every 60s against algorithmic exit rules and holds it unless one triggers.",
-      "Weekly backups to AWS S3; live monitoring via a Flask dashboard and daily Telegram reports.",
+      "Built two exit agents that manage open trades: an AI agent that reads the Forex Factory calendar and closes positions exposed to high-impact news, and a rule-based agent that reviews each trade at a configurable interval against algorithmic exit rules and holds it unless one triggers.",
+      "Nightly data and backtest pipeline for model retraining.",
+      "Weekly backups to AWS S3, live monitoring via a Flask dashboard and daily Telegram reports.",
     ],
-    tech: ["Python", "PyTorch", "LightGBM", "Optuna", "MQL5", "MetaTrader 5", "Flask", "AWS S3"],
+    tech: ["Python", "MQL5", "MetaTrader 5", "AWS S3", "Flask", "Telegram Bot API"],
     category: "ai",
     github: "https://github.com/buzeu1/mt5-ai-trader",
     metric: "2 exit agents",
@@ -201,7 +232,7 @@ export const projects: Project[] = [
       "AI agent that answers sales staff's questions about products, prices and offers inside Microsoft Teams or on the web, by text or voice note (Whisper large-v3), connected to Microsoft 365 via Azure AD (OAuth2).",
     highlights: [
       "Three-step product search robust to typos, synonyms and translated names — exact code match, fuzzy scoring (sentence-transformers), then an LLM double-check.",
-      "Asks one short question when a request is ambiguous.",
+      "Asks a clarifying question when a request is ambiguous.",
       "Turns a confirmed request into a ready-to-send PDF offer on the spot (ReportLab).",
     ],
     tech: ["Python", "FastAPI", "Azure AD", "Llama 3.1", "Whisper", "sentence-transformers", "ReportLab"],
@@ -214,11 +245,11 @@ export const projects: Project[] = [
     title: "Floraly",
     subtitle: "AI Sales Agent for Flower Shops",
     description:
-      "AI agent that sits as a chat widget in the corner of a flower shop's website (and later on in-store tablets): it asks about the occasion, the recipient and the budget, then recommends matching bouquets.",
+      "AI agent that runs as a chat widget on a flower shop's website (in-store tablet version planned): it asks about the occasion, the recipient and the budget, then recommends matching bouquets.",
     highlights: [
       "Bouquets live in a Supabase (PostgreSQL) catalog with price, flowers, colors, occasions and stock.",
       "The LLM queries the catalog via tool calls filtered by budget and event, so it only suggests bouquets that are actually available.",
-      "Each conversation is saved as a structured request (bouquet, occasion, budget, contact) in a Next.js dashboard for the florist.",
+      "Each conversation is saved as a structured request (bouquet, occasion, budget, contact) in a Next.js dashboard, where the florist prepares the order or follows up with the customer.",
     ],
     tech: ["Next.js", "TypeScript", "Supabase", "Claude API", "Tool calling"],
     category: "ai",
@@ -245,7 +276,7 @@ export const projects: Project[] = [
     description:
       "Full-stack marketplace where owners in Iași sell or rent directly to buyers, with no agents or commissions: search and filters by neighborhood, property type and price, an owner dashboard with listing statistics, and an admin panel to moderate listings, users and reports.",
     highlights: [
-      "PostgreSQL schema of 7 tables with Row Level Security on every table — users only access their own listings, favorites and conversations; admins get separate policies.",
+      "PostgreSQL schema of 7 tables with Row Level Security on every table — users can only access their own listings, favorites and conversations.",
       "Database triggers create profiles on signup; buyer–owner chat runs live on Supabase Realtime.",
       "AI assistant (LangChain + Llama 3.3 70B on Groq) recommends listings in Romanian — it retrieves the 6 best-matching active listings via diacritic-insensitive similarity search and answers only from them.",
     ],
