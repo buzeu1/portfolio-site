@@ -75,6 +75,7 @@ export default function ProjectCard({ project, wide }: { project: Project; wide?
         ))}
       </div>
 
+      {(project.live || project.github) && (
       <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
         {project.live && (
           <a
@@ -99,6 +100,7 @@ export default function ProjectCard({ project, wide }: { project: Project; wide?
           </a>
         )}
       </div>
+      )}
     </motion.article>
   );
 }

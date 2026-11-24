@@ -69,7 +69,10 @@ export default function Experience() {
                     {job.projects && (
                       <div className="mt-6 space-y-5">
                         {job.projects.map((proj) => (
-                          <div key={proj.name} className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 sm:p-6">
+                          <div
+                            key={proj.name}
+                            className="border-t border-slate-200 pt-5 sm:rounded-xl sm:border sm:bg-slate-50/60 sm:p-6"
+                          >
                             <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                               <p className="font-semibold text-slate-900">
                                 {proj.name}
@@ -77,8 +80,8 @@ export default function Experience() {
                               </p>
                               <span className="w-fit shrink-0 font-mono text-xs text-slate-500">{proj.period}</span>
                             </div>
-                            <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
-                              <span className="font-medium text-slate-500">Stack:</span> {proj.stack}
+                            <p className="mt-2 text-[13px] leading-relaxed text-slate-500">
+                              <span className="font-medium text-slate-700">Stack:</span> {proj.stack}
                             </p>
                             <ul className="mt-4 space-y-2.5">
                               {proj.points.map((p) => (
@@ -117,6 +120,7 @@ export default function Experience() {
                       </div>
                     )}
 
+                    {!job.projects && (
                     <div className="mt-6 flex flex-wrap gap-2 border-t border-slate-100 pt-5">
                       {job.tech.map((t) => (
                         <span
@@ -127,6 +131,7 @@ export default function Experience() {
                         </span>
                       ))}
                     </div>
+                    )}
                   </article>
                 </div>
               </Reveal>

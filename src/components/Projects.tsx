@@ -23,7 +23,7 @@ export default function Projects() {
           index="04"
           eyebrow="Projects"
           title="A selection of things I've built and shipped."
-          description="Machine-learning systems, LLM-powered apps, production platforms for real businesses — and a game written from scratch."
+          description="AI agents, LLM-powered apps, production platforms for real businesses — and a game written from scratch."
         />
 
         <Reveal delay={0.08}>

@@ -15,23 +15,22 @@ export default function Skills() {
           title="Tools I reach for when I build."
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((group, i) => {
-            const Icon = ICONS[i % ICONS.length];
-            return (
-              <Reveal
-                key={group.title}
-                delay={i * 0.05}
-                className={i === skillGroups.length - 1 && skillGroups.length % 3 === 1 ? "lg:col-span-3" : ""}
-              >
-                <div className="card card-hover h-full p-6">
+        <Reveal delay={0.05}>
+          <div className="card mt-12 divide-y divide-slate-100 px-5 sm:px-8">
+            {skillGroups.map((group, i) => {
+              const Icon = ICONS[i % ICONS.length];
+              return (
+                <div
+                  key={group.title}
+                  className="grid grid-cols-1 gap-4 py-6 md:grid-cols-[230px_1fr] md:items-start md:gap-8"
+                >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
                       <Icon size={18} />
                     </div>
                     <h3 className="text-sm font-semibold text-slate-900">{group.title}</h3>
                   </div>
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 md:pt-1">
                     {group.skills.map((s) => (
                       <span
                         key={s}
@@ -42,10 +41,10 @@ export default function Skills() {
                     ))}
                   </div>
                 </div>
-              </Reveal>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
